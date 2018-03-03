@@ -1,0 +1,13 @@
+#banner {
+    text-align: center;
+    padding: 10px;
+    background-color: beige;
+}
+
+#wordToSpell {
+    text-align: center;
+}
+
+#box {
+    height: 156px;
+}
