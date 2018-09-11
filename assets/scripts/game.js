@@ -1,7 +1,9 @@
 var wordArray = ["JAVASCRIPT", "MONGO", "EXPRESS", "REACT", "NODE", "BOOTSTRAP", "JQUERY", "ARRAY", "PROJECT", "HOMEWORK", "GEORGIA", "INSTITUTE", "TECHNOLOGY", "BOOTCAMP", "PROGRAMMING", "CODING"]
 var winCount = 0;
 var lossCount = 0;
-
+var guessesRemaining= 5;
+    var blanks =[];
+    var mysteryLetter=[];
 
 function winner(){
     winCount++;
@@ -16,13 +18,19 @@ function loser(){
 }
 
 function reset(){   
-    $("#toSolve").html(blanks);
-    mysteryWord = wordArray[Math.floor(Math.random()* wordArray.length)]
-    for (var i=0; i<mysteryWord.length; i++) {
-        blanks.push(" ___ ");
-        mysteryLetter.push(mysteryWord[i]);
-    }
+    //  guessesRemaining= 5;
+    //  blanks =[];
+    //  mysteryLetter=[];
+    // $("#toSolve").html(blanks);
+    // mysteryWord = wordArray[Math.floor(Math.random()* wordArray.length)]
+    // for (var i=0; i<mysteryWord.length; i++) {
+    //     blanks.push(" ___ ");
+    //     mysteryLetter.push(mysteryWord[i]);
+    // }
     $("#lettersGuessed").text(" ");
+    // $("#toSolve").html(blanks);
+    // $("#guesses").html("Guesses remaining: " + guessesRemaining);
+    init();
 }
 
 
@@ -40,14 +48,14 @@ function init(){
         mysteryLetter.push(mysteryWord[i]);
     }
 
-    $("#wins").append(winCount);
-    $("#losses").append(lossCount);
+    $("#wins").text(winCount);
+    $("#losses").text("Losses: " + lossCount);
     $("#toSolve").html(blanks);
-    $("#guesses").prepend(guessesRemaining);
+    $("#guesses").text("Guesses remaining: " + guessesRemaining);
 
-
+    
     document.onkeyup = function(event){
-        if (event.keyCode >=65 && event.keyCode <=90){    
+        if (event.keyCode >=65 && event.keyCode <=90 && guessesRemaining > 0 && blanks.indexOf(" ___ ")> -1){    
             var userGuess= event.key.toUpperCase();
             for (var i=0; i < mysteryLetter.length; i++) {
                 if (mysteryLetter[i]===userGuess) {
@@ -55,8 +63,8 @@ function init(){
                     document.getElementById("toSolve").innerText = blanks.join(" ");
                     if (blanks.indexOf(" ___ ")===-1){
                         winner();
-                        reset();
-                        init();
+                        // reset();
+                        // init();
                     }
                 }
             }
@@ -68,11 +76,15 @@ function init(){
                 }
                 if (guessesRemaining==0){
                     loser();
-                    reset();
-                    init();
+                    // reset();
+                    // init();
                 }
             }
         }
     }
+
+    $("body").on("click", "#reset", function(){
+        reset();
+    });
 }
 init()

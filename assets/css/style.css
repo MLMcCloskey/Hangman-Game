@@ -11,3 +11,15 @@
 #box {
     height: 156px;
 }
+
+.col-sm-2 {
+    align-content: center;
+    padding: 0 30px;
+    /* border: 5px groove gold; */
+}
+
+.btn-warning {
+    border: 5px groove gold;
+    padding-left: 25px;
+    padding-right: 25px;
+}
