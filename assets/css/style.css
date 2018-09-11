@@ -14,12 +14,27 @@
 
 .col-sm-2 {
     align-content: center;
-    padding: 0 30px;
-    /* border: 5px groove gold; */
+    padding: 0 35px;
+    margin: 0;
+}
+
+.col-sm-4 {
+    border: 5px groove gold;
+    margin: 10px;
+}
+
+.col-sm-8 {
+    border: 5px groove gold;
+    margin: 20px;
 }
 
 .btn-warning {
     border: 5px groove gold;
     padding-left: 25px;
     padding-right: 25px;
+}
+
+.row {
+    margin: 0 auto;
+    padding: 0;
 }

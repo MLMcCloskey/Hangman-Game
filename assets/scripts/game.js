@@ -48,7 +48,7 @@ function init(){
         mysteryLetter.push(mysteryWord[i]);
     }
 
-    $("#wins").text(winCount);
+    $("#wins").text(`Wins: ${winCount}`);
     $("#losses").text("Losses: " + lossCount);
     $("#toSolve").html(blanks);
     $("#guesses").text("Guesses remaining: " + guessesRemaining);
